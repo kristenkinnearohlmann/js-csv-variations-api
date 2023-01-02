@@ -1,4 +1,5 @@
 const express = require("express");
+const { fileImport } = require("./file-import");
 const app = express();
 const port = 5001; // using 5000 for site
 
@@ -8,4 +9,8 @@ app.get("/", (req, res) => {
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+});
+
+app.get("/file-import", (req, res) => {
+  res.send("Reached file-import endpoint");
 });

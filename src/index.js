@@ -15,6 +15,7 @@ app.get("/file-import", (req, res) => {
   res.send("Reached file-import endpoint");
 });
 
-app.post("/file-import", (req, res) => {
-  res.json({ msg: "Msg coming soon" });
+app.post("/file-import", async (req, res) => {
+  var result = await fileImport(req);
+  res.json({ msg: "Msg coming soon", result: result });
 });

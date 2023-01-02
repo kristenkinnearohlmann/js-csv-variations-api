@@ -14,3 +14,7 @@ app.listen(port, () => {
 app.get("/file-import", (req, res) => {
   res.send("Reached file-import endpoint");
 });
+
+app.post("/file-import", (req, res) => {
+  res.json({ msg: "Msg coming soon" });
+});

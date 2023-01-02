@@ -7,12 +7,12 @@ const port = 5001; // using 5000 for site
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
-app.get("/", (req, res) => {
-  res.send("Hello World!");
-});
-
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
+});
+
+app.get("/", (req, res) => {
+  res.send("Basic API for JS CSV variations");
 });
 
 app.get("/file-import", (req, res) => {
@@ -20,7 +20,6 @@ app.get("/file-import", (req, res) => {
 });
 
 app.post("/file-import", async (req, res) => {
-  console.log("Is there something here?", req.body);
   var result = await fileImport(req);
   res.json({ msg: "Msg coming soon", result: result });
 });

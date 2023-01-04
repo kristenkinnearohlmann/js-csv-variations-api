@@ -1,5 +1,5 @@
 const express = require("express");
-const { fileImport } = require("./file-import");
+const { processData } = require("./process-data");
 const app = express();
 const port = 5001; // using 5000 for site
 
@@ -19,4 +19,5 @@ app.get("/file-import", (req, res) => {
 
 app.post("/file-import", async (req, res, next) => {
   console.log(req.body);
+  processData(req);
 });

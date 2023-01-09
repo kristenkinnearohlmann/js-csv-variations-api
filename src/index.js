@@ -21,11 +21,7 @@ app.get("/file-import", (req, res) => {
 
 app.post("/file-import", async (req, res, next) => {
   const response = await processData(req);
-  console.log(response);
 
-  // res.setHeader("Content-Type", "application/json");
-  // res.writeHead(200);
-  // res.end(JSON.stringify(response));
   res.set("Content-Type", "application/json");
-  res.send({ msg: "End of line" });
+  res.send(response);
 });

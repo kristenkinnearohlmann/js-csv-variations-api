@@ -1,8 +1,10 @@
 const express = require("express");
+const cors = require("cors");
 const { processData } = require("./process-data");
 const app = express();
 const port = 5001; // using 5000 for site
 
+app.use(cors());
 app.use(express.json({ type: "*/*" }));
 
 app.listen(port, () => {
@@ -18,6 +20,12 @@ app.get("/file-import", (req, res) => {
 });
 
 app.post("/file-import", async (req, res, next) => {
-  console.log(req.body);
-  processData(req);
+  const response = await processData(req);
+  console.log(response);
+
+  // res.setHeader("Content-Type", "application/json");
+  // res.writeHead(200);
+  // res.end(JSON.stringify(response));
+  res.set("Content-Type", "application/json");
+  res.send({ msg: "End of line" });
 });
